@@ -1,18 +1,16 @@
 import TelegramBot from "node-telegram-bot-api";
+const TOKEN = "8484604597:AAH5xq6_pBRRFT5vqN-laZfkB7XOCKD1GsA";
+const bot = new TelegramBot(TOKEN, { polling: true });
+bot.on("message", function (msg) {
+  const chatid = msg.chat.id;
+  const text = msg.text;
+  const firstname = msg.chat.first_name;
+  bot.sendMessage(chatid, `salom -> ${firstname}`, {
+    reply_markup: {
+      keyboard: [[{ text: "boshlash😊" }]],
+    },
+  });
 
-const TOKEN = "8484604597:AAFUKp5va185-YQY4jbxxMZXPCYXkERYOBQ";
-
-const bot = new TelegramBot(TOKEN, {polling: true});
-bot.on("massage", function(msg) {
-    const chatId = msg.chat.Id;
-    const text = msg.text;
-
-    bot.sendMessage(chatId, 'salom');
-    
-    console.log(msg);
-    
-})
-
-
-console.log(salom);
-
+  console.log(msg);
+});
+console.log("Bot ishga tushdi . . .");
